@@ -4,6 +4,7 @@ import operator
 import sys
 
 def starsigns():
+    # each star sign, its quality and its element
     i = iter("""
         aries       cardinal  fire
         taurus      fixed     earth
@@ -21,19 +22,28 @@ def starsigns():
         aquarius    fixed     air
         pisces      mutable   water
     """.split())
+    # divide into groups of three (three on each line)
     return list(zip(i, i, i))
 
 def hexbits():
+    # pairs each hex digit with the corresponding binary
     return [(f"{i:X}", f"{i:04b}") for i in range(16)]
 
 def pick():
+    """
+    Choose randomly from the flashcards, and remove one element from it
+    (user has to guess what's missing)
+    """
     line = list(random.choice(z))
     gone = random.randrange(0, len(line))
     answer = line[gone]
     line[gone] = None
     return line, answer
-    
+
 def query():
+    """
+    Ask the user to solve a flashcard with one element missing
+    """
     q, a = pick()
     r = input(" - ".join(x or "???" for x in q) + "\n")
     if r.casefold() != a.casefold():
@@ -56,6 +66,7 @@ def query():
         return (False, r, a)
 
 def response():
+    # asks the user to solve a flashcard, and returns whether they typed anything or not
     return query()[1] == ""
 
 if __name__ == "__main__":

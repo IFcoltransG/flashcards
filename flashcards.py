@@ -1,25 +1,30 @@
 # coding: utf-8
 import random
 import operator
+import sys
 
-i = iter("""
-aries       cardinal  fire
-taurus      fixed     earth
-gemini      mutable   air
+def starsigns():
+    i = iter("""
+        aries       cardinal  fire
+        taurus      fixed     earth
+        gemini      mutable   air
 
-cancer      cardinal  water
-leo         fixed     fire
-virgo       mutable   earth
+        cancer      cardinal  water
+        leo         fixed     fire
+        virgo       mutable   earth
 
-libra       cardinal  air
-scorpio     fixed     water
-sagittarius mutable   fire
+        libra       cardinal  air
+        scorpio     fixed     water
+        sagittarius mutable   fire
 
-capricorn   cardinal  earth
-aquarius    fixed     air
-pisces      mutable   water
-""".split())
-z = list(zip(i, i, i))
+        capricorn   cardinal  earth
+        aquarius    fixed     air
+        pisces      mutable   water
+    """.split())
+    return list(zip(i, i, i))
+
+def hexbits():
+    return [(f"{i:X}", f"{i:04b}") for i in range(16)]
 
 def pick():
     line = list(random.choice(z))
@@ -31,7 +36,7 @@ def pick():
 def query():
     q, a = pick()
     r = input(" - ".join(x or "???" for x in q) + "\n")
-    if r != a:
+    if r.casefold() != a.casefold():
         print("-----------------------------")
         print("... Wrong, it was", a, "...")
         print("-----------------------------")
@@ -52,5 +57,15 @@ def response():
     return query()[1] == ""
 
 if __name__ == "__main__":
+    match sys.argv:
+        case [_, "hex"]:
+            z = hexbits()
+        case [_, "star"]:
+            z = starsigns()
+        case [_, _]:
+            print("unrecognised mode")
+            sys.exit(1)
+        case _:
+            z = starsigns()
     for _ in iter(response, True):
         pass

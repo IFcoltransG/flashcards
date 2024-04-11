@@ -37,9 +37,11 @@ def query():
     q, a = pick()
     r = input(" - ".join(x or "???" for x in q) + "\n")
     if r.casefold() != a.casefold():
-        print("-----------------------------")
-        print("... Wrong, it was", a, "...")
-        print("-----------------------------")
+        message = f"... Wrong, it was {a} ..."
+        print("-" * len(message))
+        print(message)
+        print("-" * len(message))
+
         matches = [(len(set(l) & set(q)), l) for l in z if r in l]
         top = max(matches, default=None)
         if top:

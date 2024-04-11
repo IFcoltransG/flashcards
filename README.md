@@ -13,3 +13,17 @@ python flashcards.py hex
 ## Features
 - Case insensitive.
 - When you get it wrong, it tells you other flashcards you might have gotten it confused with, sorted by similarity.
+
+## Example output
+```
+cancer - cardinal - ???
+> water
+*** Right! ***
+
+libra - ??? - air
+> mutable
+-----------------------------
+... Wrong, it was cardinal ...
+-----------------------------
+By mutable you might be thinking gemini - mutable - air
+```

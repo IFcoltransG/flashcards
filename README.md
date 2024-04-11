@@ -22,8 +22,8 @@ cancer - cardinal - ???
 
 libra - ??? - air
 > mutable
------------------------------
+------------------------------
 ... Wrong, it was cardinal ...
------------------------------
+------------------------------
 By mutable you might be thinking gemini - mutable - air
 ```

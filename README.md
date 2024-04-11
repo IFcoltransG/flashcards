@@ -9,3 +9,7 @@ python flashcards.py star
 # run on hex digits
 python flashcards.py hex
 ```
+
+## Features
+- Case insensitive.
+- When you get it wrong, it tells you other flashcards you might have gotten it confused with, sorted by similarity.

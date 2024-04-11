@@ -1,5 +1,5 @@
 # Flashcards
-This is a simple flashcard program that tests the user by asking them to fill in random blanks in a list of flashcards.
+This is a simple flashcard program on the command line, that tests the user by asking them to fill in random blanks in a list of flashcards.
 
 See built-in flashcard lists below.
 ```sh

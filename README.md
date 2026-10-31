@@ -1,3 +1,5 @@
+# [MIGRATED TO CODEBERG 2026-10-31](https://codeberg.org/IFcoltransG/flashcards)
+
 # Flashcards
 This is a simple flashcard program on the command line, that tests the user by asking them to fill in random blanks in a list of flashcards.
 
